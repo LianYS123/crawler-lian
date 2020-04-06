@@ -1,0 +1,18 @@
+{
+  "name": "crawler-lian",
+  "version": "1.0.2",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["crawler","spider"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "crawler": "^1.2.1"
+  }
+}
