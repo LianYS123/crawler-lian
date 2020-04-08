@@ -1,7 +1,7 @@
 {
   "name": "crawler-lian",
-  "version": "1.0.2",
-  "description": "",
+  "version": "1.0.5",
+  "description": "A configuration - based crawler framework",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -9,10 +9,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["crawler","spider"],
-  "author": "",
+  "keywords": [
+    "crawler",
+    "spider"
+  ],
+  "author": "连永胜",
   "license": "ISC",
-  "devDependencies": {
-    "crawler": "^1.2.1"
+  "dependencies": {
+    "crawler": "^1.2.1",
+    "uuid": "^7.0.3"
   }
 }

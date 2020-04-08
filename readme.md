@@ -1,12 +1,16 @@
+# description
+一个基于配置的爬虫框架，只要配置响应的选择器，就能爬取响应页面的信息，支持配置爬取多个列表信息、异步处理列表项等多种功能。
+
+
 # Basic usage
 ```javascript
 const {fetchBySelector,utils} = require('crawler-lian');
 //获取指定元素的属性
-fetchBySelector(uri, { selector: 'a', attr: 'href' }).then(console.log);
+fetchBySelector(uri, { selector: 'a', attr: 'href' }).then(({data}) => console.log(data));
 fetchBySelector(uri, { selectors:[
     {selector:'.position', attr:'text'},
     {selector:'.phone-num', attr:'text'}
-] }).then(console.log);
+] }).then(({data}) => console.log(data));
 
 //获取一个页面中的指定列表数据和内部数据
 fetchBySelector(uri, { groups:[
@@ -53,7 +57,7 @@ fetchBySelector(uri, { groups:[
             }
         }
     }
-] }).then(console.log);
+] }).then(({data}) => console.log(data));
 
 //其他配置项
 const option = {

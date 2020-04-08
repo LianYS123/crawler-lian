@@ -72,6 +72,7 @@ module.exports = function parse($, opts) {
                                     };
                                 }
                             } else {
+                                results[name || selector] = matchs;
                                 if (--len === 0) {
                                     resolve(results)
                                 };

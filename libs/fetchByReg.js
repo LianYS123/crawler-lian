@@ -1,6 +1,6 @@
 // const { crawUriFilter: filter } = require('./utils')
 const Crawler = require('crawler');
-const match = require('./match');
+const {match} = require('./utils');
 const { rateLimit } = require('../config')
 const craw = new Crawler({
     jQuery: false,
@@ -12,7 +12,7 @@ const craw = new Crawler({
         } else {
             let { pattern } = res.options;
             let body = res.body.toString();
-            let results = match(body.toString(), pattern);
+            let results = match(body, pattern);
             resolve(results);
         }
         done();

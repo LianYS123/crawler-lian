@@ -1,5 +1,5 @@
-const { FILE_PATH,rateLimit } = require('../config');
-const {v4:uuid} = require('uuid');
+const { FILE_PATH, rateLimit } = require('../config');
+const { v4: uuid } = require('uuid');
 const pathlib = require('path');
 const fs = require('fs');
 const Crawler = require('crawler');
@@ -9,14 +9,15 @@ let imgCrawler = new Crawler({
     jQuery: false,
     rateLimit,
     callback(err, res, done) {
-        let {resolve,reject,path,uri} = res.options;
+        let { resolve, reject, path, uri } = res.options;
         if (err) {
             reject(err);
         } else {
             let name = uuid();
-            if(uri.includes('.')){
+            if (uri.includes('.')) {
                 let i = uri.lastIndexOf('.');
                 name = name + uri.substring(i);
+                path = pathlib.resolve(path || FILE_PATH, name)
             }
             fs.writeFile(path, res.body, err => {
                 if (!err) {
@@ -30,12 +31,12 @@ let imgCrawler = new Crawler({
     }
 })
 
-function fetchFile(uri, path = pathlib.resolve(FILE_PATH, name)) {
+function fetchFile(uri, path) {
     return new Promise((resolve, reject) => {
         imgCrawler.queue([{
             uri,
             path,
-            resolve,reject
+            resolve, reject
         }]);
     })
 }

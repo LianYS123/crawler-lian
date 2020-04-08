@@ -1,6 +1,6 @@
 
 
-function match(content,reg) {
+function match(content, reg) {
     if (!content) return [];
     let results = [], hasNext = true;
     while (hasNext) {
